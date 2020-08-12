@@ -20,7 +20,7 @@ func main() {
 	i := 1
 	for _, stackConfig := range pancakeStacks {
 		numFlips := calculateMinimumFlipsNeeded(stackConfig)
-		printCaseAndNumFlips(i, numFlips)
+		fmt.Printf("Case # %v: %v\n", i, numFlips)
 		i++
 	}
 }

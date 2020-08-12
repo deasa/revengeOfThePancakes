@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"strings"
 )
 
@@ -33,10 +32,6 @@ func getCountOfSignChanges(stackConfig string) int {
 	}
 
 	return numChanges
-}
-
-func printCaseAndNumFlips(caseNum int, numFlips int) {
-	fmt.Printf("Case # %v: %v\n", caseNum, numFlips)
 }
 
 func calculateMinimumFlipsNeeded(stackConfig string) int {
