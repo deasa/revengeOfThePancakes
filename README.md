@@ -5,7 +5,7 @@ Hello!
 This is my solution written in Go to a problem that came from a Google Code Jam project that was made available online in 2016.
 
 ## To Use:
-* Install Go
+* Install Go <i>needs Go 1.15 or later</i>
 * Clone this repo
 * While inside the new repo's directory, run either `go build` or `go install`
 * To run, you can directly run the executable and manually enter the required inputs, or you can redirect the stdin to a file or similar that contains the required inputs.
