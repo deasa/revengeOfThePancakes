@@ -4,12 +4,12 @@ import (
 	"fmt"
 )
 
-type CustomError struct {
+type customError struct {
 	CustomMessage string
 	OriginalError error
 }
 
-func (err CustomError) Error() string {
+func (err customError) Error() string {
 	return fmt.Sprintf("Custom Error:   %v\nOriginal Error: %v\n", err.CustomMessage, err.OriginalError)
 }
 
@@ -17,7 +17,7 @@ func getNumStacksFromInput() (numStacks int, err error) {
 	_, err = fmt.Scan(&numStacks)
 
 	if err != nil || numStacks > 100 || numStacks < 0 {
-		return 0, CustomError{fmt.Sprintf("the number of pancake stacks must be an integer from 1 to 100"), err}
+		return 0, customError{fmt.Sprintf("the number of pancake stacks must be an integer from 1 to 100"), err}
 	}
 	return numStacks, nil
 }
@@ -26,7 +26,7 @@ func getStackConfigFromInput() (config string, err error) {
 	_, err = fmt.Scan(&config)
 
 	if err != nil || !isValidStackConfiguration(config) {
-		return "", CustomError{"each pancake stack configuration must only have the characters '+' and '-'", err}
+		return "", customError{"each pancake stack configuration must only have the characters '+' and '-'", err}
 	}
 	return config, nil
 }
