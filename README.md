@@ -8,8 +8,11 @@ This is my solution written in Go to a problem that came from a Google Code Jam 
 * Install Go
 * Clone this repo
 * While inside the new repo's directory, run either `go build` or `go install`
+* To run, you can directly run the executable and manually enter the required inputs, or you can redirect the stdin to a file or similar that contains the required inputs.
+>* As an example, you can redirect the stdin to the `input.txt` file found in the root directory. In bash, run the command `./revengeofthepancakes.exe < input.txt` to do this.
+* To run the tests in `main_test.go` simply run the command `go test`
 
-There are four go files - `main.go`, `readFromInput.go`, `pancakes.go`, `main_test.go`
+There are five main files - `main.go`, `readFromInput.go`, `pancakes.go`, `main_test.go`, and `input.txt`
 
 ### `main.go`:
 This the entrypoint of the application. It accepts input from stdin in the following format:
