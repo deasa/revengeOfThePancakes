@@ -6,7 +6,7 @@ This is my solution written in Go to a problem that came from a Google Code Jam 
 
 ## To Use:
 * Install Go <i>needs Go 1.15 or later</i>
-* Clone this repo
+* Clone this repo or run `go get github.com/deasa/revengeOfThePancakes`
 * While inside the new repo's directory, run either `go build` or `go install`
 * To run, you can directly run the executable and manually enter the required inputs, or you can redirect the stdin to a file or similar that contains the required inputs.
 >* As an example, you can redirect the stdin to the `input.txt` file found in the root directory. In bash, run the command `./revengeofthepancakes.exe < input.txt` to do this.
