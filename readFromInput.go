@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"strings"
 )
 
 type CustomError struct {
@@ -26,14 +25,14 @@ func getNumStacksFromInput() (numStacks int, err error) {
 func getStackConfigFromInput() (config string, err error) {
 	_, err = fmt.Scan(&config)
 
-	if err != nil || len(strings.Trim(config, "+-")) > 0 {
-		return "", CustomError{"the pancake stack configuration must only have the characters '+' and '-'", err}
+	if err != nil || !isValidStackConfiguration(config) {
+		return "", CustomError{"each pancake stack configuration must only have the characters '+' and '-'", err}
 	}
 	return config, nil
 }
 
 func getPancakeStacksFromInput(numStacks int) (stacks []string, err error) {
-	var pancakeStacks = make([]string, 0)
+	var pancakeStacks []string
 
 	for i := 0; i < numStacks; i++ {
 		stackConfig, readErr := getStackConfigFromInput()

@@ -7,6 +7,8 @@ func main() {
 	if readErr != nil {
 		fmt.Println(readErr)
 		return
+	} else if numStacks < 1 || numStacks > 100 {
+		fmt.Println("The number of stacks must be in the range [1, 100] inclusive.")
 	}
 
 	pancakeStacks, readErr := getPancakeStacksFromInput(numStacks)

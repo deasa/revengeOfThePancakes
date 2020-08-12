@@ -1,19 +1,34 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
+
+func isValidStackConfiguration(stackConfig string) bool {
+	return len(stackConfig) > 0 && len(strings.Trim(stackConfig, "+-")) == 0
+}
 
 func stackHasBlankSideOnBottom(stackConfig string) bool {
-	return stackConfig[len(stackConfig)] == '-'
+	return stackConfig[len(stackConfig)-1] == '-'
 }
 
 func getCountOfSignChanges(stackConfig string) int {
 
-	prevSign := string(stackConfig[0])
-	numChanges := 0
-	for sign := range stackConfig {
-		if string(sign) != prevSign {
-			numChanges += 1
-			prevSign = string(sign)
+	if !isValidStackConfiguration(stackConfig) {
+		return 0
+	}
+
+	var (
+		numChanges int    = 0
+		runes      []rune = []rune(stackConfig)
+		prevSign   string = string(runes[0])
+	)
+
+	for i := 0; i < len(runes); i++ {
+		if string(runes[i]) != prevSign {
+			numChanges++
+			prevSign = string(runes[i])
 		}
 	}
 
@@ -25,10 +40,15 @@ func printCaseAndNumFlips(caseNum int, numFlips int) {
 }
 
 func calculateMinimumFlipsNeeded(stackConfig string) int {
+
+	if !isValidStackConfiguration(stackConfig) {
+		return 0
+	}
+
 	numSignChanges := getCountOfSignChanges(stackConfig)
 
 	if stackHasBlankSideOnBottom(stackConfig) {
-		numSignChanges += 1
+		numSignChanges++
 	}
 
 	return numSignChanges
